@@ -93,8 +93,13 @@ function renderExpenses() {
             lengthMenu: [10, 25, 50, 100, 200], // Set the available "Show entries" options
             pageLength: 10, // Set the default number of records per page
             responsive: true,
-            dom: 'lBfrtip',
-            buttons: [
+            dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
+            // Add the Font Awesome icon for the search input
+			language: {
+				search: '<i class="fas fa-search"></i>'
+			},
+			
+			buttons: [
                 {
                     extend: 'csv',
                     text: 'Export CSV',
@@ -108,10 +113,6 @@ function renderExpenses() {
                         }
                         return rows.join('\n');
                     }
-                },
-                {
-                    extend: 'excel',
-                    text: 'Export Excel'
                 }
                 
             ],
