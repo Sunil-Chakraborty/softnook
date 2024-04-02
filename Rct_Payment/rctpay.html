@@ -43,13 +43,25 @@
 			min-height: 10px;
 			text-align: center;
 		}
+		
+		#outside-form {
+			margin-left: 72px;
+		}
 	</style>
 </head> 
 
 <body> 
 	<div class="container"> 
-		<h1>Easy Peasy Household Finance Management</h1> 
-		<form id="expense-form"> 
+		<h1>Petty Cash Management</h1> 
+			<div id="outside-form" class="form-group" style="margin-top: 10px;">				
+				<input type="text" id="project-name" style="width: 50%;" class="form-control" placeholder="Project Name" >
+				<button id="proj-head" style="margin-left:5px;">
+					Add Once
+				</button>
+			</div>
+			
+		<form id="expense-form">
+		
 			<div style="margin-top:5px;" class="form-check form-check-inline">
 				<input class="form-check-input" type="radio" name="expense-type" id="expense-rct" value="Rct" checked required>
 				<label class="form-check-label" for="expense-rct">Rct</label>
@@ -68,13 +80,15 @@
 			<input type="date" id="expense-date"  class="form-control" style="width: 20%;" required />
 			
 			<button style="margin-left:2px;" type="submit"> 
-				Add Expense 
+				Add Record 
 			</button>
 			<button id="generate-report-btn" style="margin-left:5px;">
 				Report
 			</button>
+			
 		</form> 
 		
+			
 		<div class="expense-table"> 
 			<table id="expense-table"> 
 				<thead > 
