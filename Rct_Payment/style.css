@@ -1,8 +1,14 @@
 /* style.css */
-body { 
-	font-family: Arial, sans-serif; 
-	margin: 20px; 
-} 
+
+body {
+    background-image: url('image/mktg_photo.avif'); /* Specify the path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Do not repeat the background */
+    /* You can also add additional styles here */
+   font-family: Arial, sans-serif; 
+   margin: 20px;
+}
 
 .green-amount{
 	color: green;
