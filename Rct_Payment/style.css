@@ -6,8 +6,8 @@ body {
     background-position: center; /* Center the background */
     background-repeat: no-repeat; /* Do not repeat the background */
     /* You can also add additional styles here */
-   font-family: Arial, sans-serif; 
-   margin: 20px;
+	font-family: Arial, sans-serif; 
+	margin: 20px;
 }
 
 .green-amount{
@@ -114,14 +114,10 @@ tbody td {
 	background-color: #f2f2f2; 
 }
 
-/* Custom CSS for DataTables elements */
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_paginate {	
-	font-size: 20px; /* Change the font-size here */
-}
-	
-.dataTables_wrapper .buttons-csv {
-	margin-left: 20px;
+/* Apply line break after "Show" and "Search" elements */
+.dataTables_wrapper .dataTables_length::after,
+.dataTables_wrapper .dataTables_filter::after {
+	content: "\A"; /* Add line break */
+	white-space: pre; /* Preserve whitespace */
+	display: block; /* Display content as block */
 }
