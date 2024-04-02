@@ -1,4 +1,11 @@
 // script.js 
+
+// Get the value of the input field
+var projectName = document.getElementById("project-name").value;
+
+// Now you can use the 'projectName' variable to access the value entered by the user
+console.log("Project Name: " + projectName);
+
 // Get form, expense list, and total amount elements 
 
 const expenseForm = 
@@ -391,4 +398,51 @@ function generateReportPrint() {
 // Add event listener to the button for generating the report print
 document.getElementById("generate-report-btn").addEventListener("click", function() {
     generateReportPrint();
+});
+
+
+$(document).ready(function() {
+	$('#project-name').prop('required', true);
+    // Check if input data is available in localStorage
+	
+	
+    const storedData = localStorage.getItem('projectName');
+	
+    if (storedData) {
+        // Display stored data as a label
+        $('#outside-form').html(`<h2><label class="form-control" style="font-family: 'Comic Sans MS', cursive, sans-serif; width: 50%;color:blue; ">${storedData}</label> 
+        <i class="fas fa-edit edit-icon edit-btn" id="edit-btn" style="margin-left: 5px;font-size:22px;" ></i></h2>`);
+    
+	
+	}
+
+    // Event listener for add button click
+    $(document).on('click', '#proj-head', function() {
+        const projectName = $('#project-name').val();
+        
+        // Store input data in localStorage
+        localStorage.setItem('projectName', projectName);
+		
+		// Check if project name is empty
+		if (projectName === '') {
+			alert('Please enter a project name.');
+			return; // Exit the function if project name is empty
+		}
+		
+        // Display input data as a label and edit button
+        $('#outside-form').html(`<h2 style="width: 50%; text-align:center;"><label class="form-control" >${projectName}</label> 
+        </h2>`);
+		location.reload();
+	});
+
+    // Event listener for edit button click
+    $(document).on('click', '#edit-btn', function() {
+        const storedData = localStorage.getItem('projectName');
+        
+        // Display input data as a label and edit button
+        $('#outside-form').html(`<h2><input type="text" id="project-name" style="width: 50%; margin-left: 72px;" class="form-control" placeholder="Project Name" value="${storedData}" required>
+        <button id="proj-head" class="form-control" style="margin-left: 5px;">Add Once</button></h2>`);
+		
+	
+	});
 });
