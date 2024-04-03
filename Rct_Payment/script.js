@@ -93,7 +93,8 @@ function renderExpenses() {
             lengthMenu: [10, 25, 50, 100, 200], // Set the available "Show entries" options
             pageLength: 10, // Set the default number of records per page
             responsive: true,
-            dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
+            //dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
+	    dom: '<"row"<"col-sm-6"l><"col-sm-6"f>><"row"<"col-sm-6"B>>tip',		
             // Add the Font Awesome icon for the search input
 			language: {
 				search: '<i class="fas fa-search"></i>'
