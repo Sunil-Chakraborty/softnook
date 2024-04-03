@@ -121,3 +121,12 @@ tbody td {
 	white-space: pre; /* Preserve whitespace */
 	display: block; /* Display content as block */
 }
+
+.dataTables_length label {
+    /* Your custom CSS properties here */
+    font-size: 20px;
+	font-weight:bold;
+    color: orange;
+	margin-right:15px;
+    /* Add any other styles you want */
+}
