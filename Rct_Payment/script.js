@@ -93,30 +93,46 @@ function renderExpenses() {
             lengthMenu: [10, 25, 50, 100, 200], // Set the available "Show entries" options
             pageLength: 10, // Set the default number of records per page
             responsive: true,
-            //dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
-	    dom: '<"row"<"col-sm-6"l><"col-sm-6"f>><"row"<"col-sm-6"B>>tip',		
-            // Add the Font Awesome icon for the search input
+            //dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip  ',
+            dom: '<"row"<"col-sm-6"l><"col-sm-6"f>><"row"<"col-sm-6"B>>tip',
+			//dom: '<"row"<"col-sm-6"l><"col-sm-6"f>><"row"B><"row"tip',
+			//dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>tip',
+			/// Add the Font Awesome icon for the search input
 			language: {
 				search: '<i class="fas fa-search"></i>'
 			},
 			
-			buttons: [
-                {
-                    extend: 'csv',
-                    text: 'Export CSV',
-                    customize: function(csv) {
-                        // Exclude last column (Action) from CSV
-                        var rows = csv.split('\n');
-                        for (var i = 0; i < rows.length; i++) {
-                            var cells = rows[i].split(',');
-                            cells.splice(cells.length - 1, 1); // Remove last cell (Action)
-                            rows[i] = cells.join(',');
-                        }
-                        return rows.join('\n');
-                    }
-                }
-                
-            ],
+			//dom: 'lBfrtip',
+			
+            buttons: [
+				{
+					extend: 'csv',
+					text: 'Export CSV',
+					customize: function(csv) {
+						// Exclude last column (Action) from CSV
+						var rows = csv.split('\n');
+						for (var i = 0; i < rows.length; i++) {
+							var cells = rows[i].split(',');
+							cells.splice(cells.length - 1, 1); // Remove last cell (Action)
+							rows[i] = cells.join(',');
+						}
+						return rows.join('\n');
+					}
+				},
+				{
+					extend: 'excel',
+					text: 'Export Excel'
+				},
+				{
+					extend: 'print',
+					text: 'Print',
+					customize: function(win) {					
+						$(win.document.body).find('table').addClass('display').css('font-size', '12px');
+						$(win.document.body).find('thead th:last-child').hide(); // Exclude last th (Action)
+						$(win.document.body).find('tbody td:last-child').hide(); // Exclude last td (Delete)
+					}
+				}
+			],
             order: [[4, 'desc']], // Sort by the fourth column (date) in descending order
 
             initComplete: function() {
@@ -347,7 +363,7 @@ EW488879622IN
 function generateReportPrint() {
     // Retrieve expenses from localStorage
     const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-
+	const storedData = localStorage.getItem('projectName');
     // Create a new window for the printable report
     const printWindow = window.open("", "_blank");
 	
@@ -369,19 +385,26 @@ function generateReportPrint() {
     });
     // Write HTML content to the new window
     printWindow.document.write("<html><head><title>Recepts and Payments Report Print</title>");
+	
     printWindow.document.write('<style>@page { size: landscape; }</style>'); // Set page orientation to landscape
     printWindow.document.write("</head><body>");
 
     // Add content to the printable report
     printWindow.document.write(`<h2>Recepts and Payments Report as on ${currentDate}</h2>`);
-    printWindow.document.write("<table border='1'><thead><tr><th>Tr.Type</th><th>Item Name</th><th>Narration</th><th>Amount (Rs)</th><th>Date</th></tr></thead><tbody>");
+    printWindow.document.write(`<h2>Project: ${storedData}</h2>`);
+    
+	
+	printWindow.document.write("<table border='1'><thead><tr><th>Tr.Type</th><th>Item Name</th><th>Narration</th><th>Amount (Rs)</th><th>Date</th></tr></thead><tbody>");
     expenses.forEach(expense => {
         const formattedDate = new Date(expense.date).toLocaleDateString('en-GB', {
             day: '2-digit',
             month: '2-digit',
             year: '2-digit'
         });
-        printWindow.document.write(`<tr><td>${expense.tr}</td><td>${expense.name}</td><td>${expense.comment}</td><td style="text-align:right;">${expense.amount.toFixed(2)}</td><td>${formattedDate}</td></tr>`);
+		// Replace newline characters with <br> tags for the narration
+		const formattedComment = expense.comment.replace(/\n/g, '<br>');
+		
+		printWindow.document.write(`<tr><td>${expense.tr}</td><td>${expense.name}</td><td>${formattedComment}</td><td style="text-align:right;">${expense.amount.toFixed(2)}</td><td>${formattedDate}</td></tr>`);
     });
 	 // Print total amount row
     printWindow.document.write(`<tr><td colspan="3" ><strong>Net Amount</strong></td><td style="text-align:right;font-weight:bold;">${totalAmount.toFixed(2)}</td></tr>`);
