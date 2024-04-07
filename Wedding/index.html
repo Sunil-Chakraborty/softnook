@@ -13,9 +13,14 @@
 		font-family: 'Open Sans', sans-serif;
     }
     header {
-        padding: 10px 10px;
-        background: #acb3b9;
-	    	
+        font-size:50px;
+		padding-top:1px;
+		width: 100%;        
+		background-image: url('photo/bg2.webp');
+	    height:50px;
+		color:teal;
+		text-align:center;
+		font-family:'Comic Sans MS', 'Comic Sans', cursive;		
     }
     header h1 {
         font-size: 24px;
@@ -27,11 +32,12 @@
     nav, section {
         float: left; 
         padding: 20px;
-        min-height: 500px;
+        min-height: 530px;
         box-sizing: border-box;
+		background-image: url('photo/bg2.webp');
     }
     section {
-        width: 80%;
+        width: 85%;
 		display: flex; /* Enables Flexbox */
 		justify-content: center; /* Centers children (images) horizontally */
 		align-items: center; /* Centers children (images) vertically */
@@ -48,12 +54,13 @@
 	
     nav {
         width: 15%;             
-        background: #d4d7dc;
+        
+		background-image: url('photo/bg2.webp');
     }    
     nav ul {
         list-style: none; 
         line-height: 24px;
-        padding: 0px; 
+        padding: 80px; 
     }
     nav ul li a {
         color: #333;
@@ -68,7 +75,7 @@
     footer {
         background: #acb3b9;            
         text-align: center;
-        padding: 5px;
+        
     }
 	#imageSection {
 		min-width: 650px; /* Set maximum width */
@@ -93,11 +100,11 @@
 	
     <div class="container">
         <header>
-            <h1>Carousel Testing</h1>
+            <h1>Pupu weds Pukka</h1>
         </header>
         <div class="wrapper clearfix">
             <nav>
-                <ul>
+                <ul>					
                     <li><a href="#" id="home">Home</a></li>
 					<li><a href="#" id="image">Photo</a></li>
 					<li><a href="#" id="video">Video</a></li>
@@ -116,8 +123,7 @@
 					<div class="item active">
 					  <img class="section-img" src="photo/ph6.jpg" alt="New York">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 					
@@ -125,36 +131,31 @@
 					<div class="item">
 					  <img class="section-img" src="photo/ph2.jpg" alt="New York">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 					<div class="item">
 					  <img class="section-img" src="photo/ph3.jpg" alt="New York">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 					<div class="item">
 					  <img class="section-img" src="photo/ph4.jpg" alt="New York">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 					<div class="item">
 					  <img class="section-img" src="photo/ph5.jpg" alt="New York">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 					<div class="item">
 					  <img class="section-img" src="photo/ph1.jpg" alt="ph6">
 					  <div class="carousel-caption">
-						<h3>Wedding Pic</h3>
-						<p>Pupu weds Pukka!</p>
+						
 					  </div>
 					</div>
 				
@@ -209,13 +210,14 @@
             <p>copyright &copy; softnook</p>
         </footer>
     </div>
+	
 	<!-- Audio Player for Background Music -->
 	<audio id="audioPlayer" controls loop>
 		<source src="audio/piano.mp3" type="audio/mpeg">
-		
+		Your browser does not support the audio element.
 	</audio>
 	
-
+	
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -240,9 +242,9 @@
 		});
 	  });
 	   // Auto-play background music when entering the 'Photo' section
-	    $('#image').click(function() {
-	        $('#audioPlayer').trigger('play'); // Start playing the audio
-	    });
+    $('#image').click(function() {
+        $('#audioPlayer').trigger('play'); // Start playing the audio
+    });
 	</script>
 </body>
 </html>
