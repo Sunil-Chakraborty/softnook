@@ -209,6 +209,14 @@
             <p>copyright &copy; softnook</p>
         </footer>
     </div>
+	<!-- Audio Player for Background Music -->
+	<audio id="audioPlayer" controls loop>
+		<source src="audio/piano.mp3" type="audio/mpeg">
+		
+	</audio>
+	
+
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -231,6 +239,10 @@
 		  $('#videoCarousel').carousel(0); // Show the first slide of the carousel
 		});
 	  });
+	   // Auto-play background music when entering the 'Photo' section
+	    $('#image').click(function() {
+	        $('#audioPlayer').trigger('play'); // Start playing the audio
+	    });
 	</script>
 </body>
 </html>
