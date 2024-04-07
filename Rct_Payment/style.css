@@ -1,0 +1,132 @@
+/* style.css */
+
+body {
+    background-image: url('image/mktg_photo.avif'); /* Specify the path to your image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Do not repeat the background */
+    /* You can also add additional styles here */
+	font-family: Arial, sans-serif; 
+	margin: 20px;
+}
+
+.green-amount{
+	color: green;
+	font-weight: bold;
+	
+}
+.container { 
+	max-width: 800px; 
+	margin: 0 auto; 
+	background-color: #FFFACD; 
+	padding: 20px; 
+	border-radius: 8px; 
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+} 
+
+h1 { 
+	text-align: center; 
+	margin-bottom: 10px; 
+} 
+
+h2 { 
+	text-align: center; 
+	margin-bottom: 10px; 
+} 
+
+form { 
+	display: flex; 
+	justify-content: center; 
+	margin-bottom: 20px;
+		
+} 
+
+input[type="text"],textarea,
+input[type="date"], 
+input[type="number"] { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	border-radius: 4px; 
+	outline: none;
+	background-color: white; 
+	margin : 2px;
+	font-size : 16px;
+	
+} 
+
+input[type="text"]::placeholder,textarea::placeholder, 
+input[type="number"]::placeholder { 
+	color: #999; 
+} 
+
+button { 
+	padding: 5px 5px; 
+	background-color: #4caf50; 
+	color: white; 
+	border: none; 
+	border-radius: 4px; 
+	cursor: pointer; 
+} 
+
+button:hover { 
+	background-color: #45a049; 
+} 
+
+.expense-table { 
+	border: 1px solid #ddd; 
+	border-radius: 8px; 
+	overflow: hidden; 
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+} 
+
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+} 
+
+thead th { 
+	background-color: black;
+	color: white;	
+	padding: 10px; 
+	text-align: left; 
+} 
+
+tbody td { 
+	padding: 10px; 
+	border-top: 1px solid #ddd; 
+} 
+
+.delete-btn { 
+	color: red; 
+	cursor: pointer;
+	
+} 
+
+.edit-btn { 
+	color: green; 
+	cursor: pointer;
+	
+} 
+
+.total-amount { 
+	padding: 10px;
+	margin-left:100px;
+	background-color: #f2f2f2; 
+}
+
+/* Apply line break after "Show" and "Search" elements */
+.dataTables_wrapper .dataTables_length::after,
+.dataTables_wrapper .dataTables_filter::after {
+	content: "\A"; /* Add line break */
+	white-space: pre; /* Preserve whitespace */
+	display: block; /* Display content as block */
+}
+
+.dataTables_length label {
+    /* Your custom CSS properties here */
+    font-size: 20px;
+    font-weight:bold;
+    color: teal;
+    margin-right:15px;
+    /* Add any other styles you want */
+}
