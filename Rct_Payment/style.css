@@ -25,7 +25,7 @@ body {
     width: 100%; /* Take full width of the viewport */
     max-width: none; /* Override max-width */
     margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    padding: 20px; /* Remove default padding */
     background-color: #FFFACD;
     box-shadow: none; /* Remove box-shadow for better visibility */
 }
