@@ -1,14 +1,19 @@
 /* style.css */
 
+
+
 body {
-    background-image: url('image/mktg_photo.avif'); /* Specify the path to your image */
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the background */
-    background-repeat: no-repeat; /* Do not repeat the background */
-    /* You can also add additional styles here */
-	font-family: Arial, sans-serif; 
-	margin: 20px;
+    background-image: url('image/mktg_photo.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set body height to full viewport height */
+    overflow: hidden; /* Prevent vertical scrolling */
 }
+
 
 .green-amount{
 	color: green;
