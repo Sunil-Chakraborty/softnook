@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Clock for India -->
+    <div class="clock" id="clock-india">
+        <!-- Hour markers -->
+        <span style="--i: 1" class="hour-marker"><b>1</b></span>
+        <span style="--i: 2" class="hour-marker"><b>2</b></span>
+        <span style="--i: 3" class="hour-marker"><b>3</b></span>
+        <span style="--i: 4" class="hour-marker"><b>4</b></span>
+        <span style="--i: 5" class="hour-marker"><b>5</b></span>
+        <span style="--i: 6" class="hour-marker"><b>6</b></span>
+        <span style="--i: 7" class="hour-marker"><b>7</b></span>
+        <span style="--i: 8" class="hour-marker"><b>8</b></span>
+        <span style="--i: 9" class="hour-marker"><b>9</b></span>
+        <span style="--i: 10" class="hour-marker"><b>10</b></span>
+        <span style="--i: 11" class="hour-marker"><b>11</b></span>
+        <span style="--i: 12" class="hour-marker"><b>12</b></span>
+        
+        <!-- Clock hands (hour, minute, second) -->
+        <div style="--clr: #ff3db5; --h: 74px" id="hour" class="hand">
+            <i></i>
+        </div>
+        <div style="--clr: #00a6ff; --h: 84px" id="min" class="hand">
+            <i></i>
+        </div>
+        <div style="--clr: #dfffdd; --h: 94px" id="sec" class="hand">
+            <i></i>
+        </div>
+
+        <!-- Caption for India -->
+        <div class="caption">India</div>
+		<!-- Date field for India -->
+        <div class="date" id="date-india"></div>
+    </div>
+
+    <!-- Clock for USA -->
+    <div class="clock usa" id="clock-usa">
+        <!-- Hour markers -->
+        <span style="--i: 1" class="hour-marker"><b>1</b></span>
+        <span style="--i: 2" class="hour-marker"><b>2</b></span>
+        <span style="--i: 3" class="hour-marker"><b>3</b></span>
+        <span style="--i: 4" class="hour-marker"><b>4</b></span>
+        <span style="--i: 5" class="hour-marker"><b>5</b></span>
+        <span style="--i: 6" class="hour-marker"><b>6</b></span>
+        <span style="--i: 7" class="hour-marker"><b>7</b></span>
+        <span style="--i: 8" class="hour-marker"><b>8</b></span>
+        <span style="--i: 9" class="hour-marker"><b>9</b></span>
+        <span style="--i: 10" class="hour-marker"><b>10</b></span>
+        <span style="--i: 11" class="hour-marker"><b>11</b></span>
+        <span style="--i: 12" class="hour-marker"><b>12</b></span>
+
+        <!-- Clock hands (hour, minute, second) -->
+        <div style="--clr: #ff3db5; --h: 74px" id="hour-usa" class="hand">
+            <i></i>
+        </div>
+        <div style="--clr: #00a6ff; --h: 84px" id="min-usa" class="hand">
+            <i></i>
+        </div>
+        <div style="--clr: #dfffdd; --h: 94px" id="sec-usa" class="hand">
+            <i></i>
+        </div>
+
+        <!-- Caption for USA -->
+        <div class="caption">USA</div>
+		<!-- Date field for USA -->
+        <div class="date" id="date-usa"></div>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
