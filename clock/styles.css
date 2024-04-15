@@ -3,24 +3,26 @@
     padding: 0;
     box-sizing: border-box;
     color: #ffffff;
+	
 }
 
-body {
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 10vh;
+    /* Apply the radial gradient as the background */
     background: radial-gradient(circle, #01000f, #22191f, #1d012e);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .container {
+    /* Additional styling for your clock container */
+    position: relative;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Set maximum width */
     display: flex;
-    justify-content: space-between; /* Align clocks in a horizontal layout */
-    width: 80%; /* Adjust width of container */
-    max-width: 800px; /* Set maximum width of container */
+    justify-content: space-between;
 }
-
 .clock {
     position: relative; /* Ensure clock elements are positioned relative to their container */
     width: 300px;
