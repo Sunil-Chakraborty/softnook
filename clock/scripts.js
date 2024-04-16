@@ -39,7 +39,7 @@ function displayTime() {
 
 function updateDateField(hours, minutes, seconds, elementId) {
     const dateElement = document.getElementById(elementId);
-    const formattedDate = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+    const formattedDate = `${formatTime(hours)}:${formatTime(minutes)}`;
     dateElement.textContent = formattedDate;
 }
 
@@ -52,3 +52,34 @@ setInterval(displayTime, 1000);
 
 // Initial display of time and date
 displayTime();
+
+/* Function to toggle audio playback
+function toggleAudio() {
+    const audioPlayer = document.getElementById('audio-player');
+
+    if (audioPlayer.paused) {
+        // If audio is paused, play it
+        audioPlayer.play();
+    } else {
+        // If audio is playing, pause it
+        audioPlayer.pause();
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the audio player element
+    const audioPlayer = document.getElementById('audio-player');
+
+    // Add a click event listener to the document body
+    document.body.addEventListener('click', function() {
+        // Toggle playback of the audio player when the body is clicked
+        if (audioPlayer.paused) {
+            audioPlayer.play(); // If paused, play the audio
+        } else {
+            audioPlayer.pause(); // If playing, pause the audio
+        }
+    });
+});
+
+*/
