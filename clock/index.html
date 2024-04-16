@@ -6,11 +6,10 @@
     <title>Time Zones Converter</title>
     <link rel="stylesheet" href="style1.css">
 </head>
-    
 <body>
 
 <div class="container">
-    <h1 id="ist-heading">USA time Zones Conversion from IST</h1>
+    <h2 id="ist-heading">USA Time Zones Conversion from IST</h2>
 
     <table>
         <tr>
@@ -42,8 +41,33 @@
             <td id="pacificTime"></td>
         </tr>
     </table>
+	
+</div>
+	<!-- Footer -->
+	<br>
+	<div id="footer" class="d-flex flex-row align-items-center footer bg-white shadow-lg mt-4">
+		<p class="m-auto">&copy;&nbspSunil Chakraborty | 2024</p>
+	</div>
+	<!-- End Footer -->
+	
+	<!-- Modal container -->
+    <div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>About</h2>
+        <p style="text-align: center; font-family: 'Arial', sans-serif;color: #007bff;">Welcome to the real-time Analog Clock application.</p>
+		<br>        
+        <p style="font-weight:bold;">For any customization requests, please reach out to:</p>
+        <p>Email: to.sunilc@gmail.com<br>
+           Phone: +9903751108</p>
+    </div>
 </div>
 
+	<audio id="audio-player" loop>
+        <source src="audio/piano.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+	
 <script src="script1.js"></script>
 </body>
 </html>
