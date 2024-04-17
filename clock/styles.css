@@ -2,9 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #ffffff;
-	
-} 
+    color: black;
+}
+/* Define custom properties for hand lengths */
+:root {
+    --hour-length: 45px; /* Updated hour hand length */
+    --minute-length: 63px; /* Updated minute hand length */
+    --second-length: 72px; /* Updated second hand length */
+}
 
 .wrapper {
     display: flex;
@@ -15,6 +20,7 @@
     background: radial-gradient(circle, #01000f, #22191f, #1d012e);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .container {
     /* Additional styling for your clock container */
     position: relative;
@@ -23,12 +29,14 @@
     display: flex;
     justify-content: space-between;
 }
+
 .clock {
     position: relative; /* Ensure clock elements are positioned relative to their container */
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    background-color: hsla(120, 60%, 70%, 0.3);
+    background-color:  #D4AF37;
+	animation: shineEffect 2s infinite;
     border: 4px solid rgba(121, 112, 112, 0.25);
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.9);
     display: flex;
@@ -36,24 +44,19 @@
     align-items: center;
     position: relative; /* Ensure child elements are positioned relative to the clock */
 }
+
 .hour-marker {
     position: absolute;
     font-size: 14px; /* Adjust font size of hour markers */
+	
     transform: translate(-50%, -50%); /* Center the hour markers */
 }
 
 /* Positioning hour markers around the clock */
-#clock-india .hour-marker {
-    --angle: calc((var(--i) - 3) * 30deg); /* Calculate angle based on hour marker index */
-    --radius: 80px; /* Adjust radius for a smaller clock size */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
-}
-
+#clock-india .hour-marker,
 #clock-usa .hour-marker {
     --angle: calc((var(--i) - 3) * 30deg); /* Calculate angle based on hour marker index */
-    --radius: 80px; /* Adjust radius for a smaller clock size */
+    --radius: 65px; /* Adjust radius for a smaller clock size */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
@@ -66,33 +69,43 @@
     align-items: flex-end;
 }
 
+
+
+
 .hand i {
     position: absolute;
     background-color: var(--clr);
     width: 4px;
-    height: var(--h);
+    height: var(--h); /* Use custom property to set hand length */
     border-radius: 8px;
     transform-origin: bottom center; /* Set transform origin to bottom center for clock hands */
+	/*transform: translateY(-50%); Adjust vertical positioning */
 }
 
-#hour, #hour-usa {
+/* Apply 20% reduction to specific hand lengths */
+#hour,
+#hour-usa {
     --clr: #ff3db5; /* Hour hand color */
-    --h: 60px; /* Hour hand length */
-}
+	
+}   
 
-#min, #min-usa {
+
+#min,
+#min-usa {
     --clr: #00a6ff; /* Minute hand color */
-    --h: 80px; /* Minute hand length */
+	
 }
 
-#sec, #sec-usa {
+#sec,
+#sec-usa {
     --clr: #dfffdd; /* Second hand color */
-    --h: 90px; /* Second hand length */
+	
 }
 
 .caption {
     position: absolute;
     bottom: -20px; /* Adjust distance of caption from clock */
+	color:white;
     left: 50%;
     transform: translateX(-50%);
     font-size: 16px;
@@ -102,7 +115,7 @@
 
 .date {
     position: absolute;
-    top: calc(50% + 40px); /* Adjust the distance below the clock caption */
+    top: calc(50% + 25px); /* Adjust the distance below the clock caption */
     left: 50%;
     transform: translateX(-50%);
     font-size: 16px;
@@ -110,15 +123,14 @@
     text-transform: uppercase;
 }
 
-
 .flag {
     width: 55px; /* Increase flag width */
-	border-radius: 50%;
+    border-radius: 50%;
     height: auto; /* Maintain aspect ratio */
     margin-bottom: 20px; /* Adjust margin for flag position */
 }
 
 /* Style for the audio player */
 #audio-player {
-	display: none; /* Hide by default */
+    display: none; /* Hide by default */
 }
