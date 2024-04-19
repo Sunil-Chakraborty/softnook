@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Images</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    body {
+        font: 14px Arial, sans-serif;
+        margin: 0;
+        background-color: #100e17;
+		background-image: url('photo/bg2.webp');		
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+    }
+    header {
+        font-size: 40px;
+		color:green;
+        padding-top: 20px;
+        text-align: center;
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		background-image: url('photo/bg2.webp');
+    }
+    .container {
+        width: 100%;
+        background: #f2f2f2;
+        padding: 20px;
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space out flex items */
+        align-items: flex-start; /* Align items to the start of the container */
+    }
+    nav {
+        width: 15%;
+		
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    nav ul li a {
+        display: block;
+        padding: 10px;
+		margin-left:80px;
+        text-decoration: none;
+        color: teal;
+        font-weight: bold;
+		
+    }
+    section {
+        flex: 1; /* Take up remaining space */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        min-height: 500px;
+        background-image: url('photo/bg1.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+    }
+    #imageSection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 800px;
+    }
+    #imageSection img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    footer {
+        background: #acb3b9;
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+	 .image-container {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .image-container img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-container p {
+        margin-top: 5px;
+        font-size: 14px;
+        color: black; /* Change text color to black */
+        text-align: center; /* Center-align the text */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    
+	<div class="wrapper clearfix" style="width:20%;">
+	<header>
+        <h1>Pupu weds Pukka</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="home">Home</a></li>
+            <li><a href="#" id="image">Photo</a></li>
+            <li><a href="#" id="video">Video</a></li>
+            <li><a href="#" id="contact">Contact</a></li>
+        </ul>
+    </nav>
+	</div>
+    <section>
+        <div id="imageSection"></div> <!-- Container for images -->
+    </section>
+	
+</div>
+
+<!-- Audio Player for Background Music -->
+<audio id="audioPlayer" controls loop style="display:none;">
+    <source src="audio/piano.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<script>
+    $(document).ready(function(){
+        $('#image').click(function(e){
+            e.preventDefault(); // Prevent default anchor behavior
+            $('#imageSection').show();
+
+            // Clear existing images
+            $('#imageSection').empty();
+
+            // Array of image filenames (assuming they exist in 'photo' folder)
+            var imageFiles = ['ph1.jpg', 'ph2.jpg', 'ph3.jpg', 'ph4.jpg', 'ph5.jpg', 'ph6.jpg'];
+
+            // Titles corresponding to image filenames
+            var imageTitles = {
+                'ph1.jpg': 'Dashboard',
+                'ph2.jpg': 'Image 2',
+                'ph3.jpg': 'Image 3',
+                'ph4.jpg': 'Image 4',
+                'ph5.jpg': 'Image 5',
+                'ph6.jpg': 'Image 6'
+            };
+
+            // Loop through imageFiles and append img elements to imageSection
+            imageFiles.forEach(function(filename) {
+                // Create a container div for each image and title
+                var imageContainer = $('<div>').addClass('image-container');
+
+                // Create an img tag for the image
+                var img = $('<img>').attr({
+                    'src': 'photo/' + filename,
+                    'title': imageTitles[filename] // Set the title attribute
+                }).addClass('section-img');
+
+                // Create a paragraph for the image title
+                var title = $('<p>').text(imageTitles[filename]);
+
+                // Append img and title to the imageContainer
+                imageContainer.append(img);
+                imageContainer.append(title);
+
+                // Append imageContainer to the imageSection
+                $('#imageSection').append(imageContainer);
+            });
+        });
+
+        $('#video').click(function(e){
+		  e.preventDefault(); // Prevent default anchor behavior
+		  $('#imageSection').hide();
+		  $('#videoSection').show(); // Show the video section
+		  $('#videoCarousel').carousel(0); // Show the first slide of the carousel
+		});
+    });
+</script>
+
+</body>
+</html>
