@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Images</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><style>
+    body {
+        font: 14px Arial,sans-serif; 
+        margin: 0px;
+		background-color: #100e17;
+		font-family: 'Open Sans', sans-serif;
+    }
+    header {
+        font-size:50px;
+		padding-top:1px;
+		width: 100%;        
+		background-image: url('photo/bg2.webp');
+	    height:65px;
+		color:teal;
+		text-align:center;
+		font-family:'Comic Sans MS', 'Comic Sans', cursive;		
+    }
+    
+    .container {
+        width: 100%;
+        background: #f2f2f2;  
+    }
+    nav, section {
+        float: left; 
+        padding: 20px;
+        min-height: 530px;
+        box-sizing: border-box;
+		background-image: url('photo/bg2.webp');
+    }
+    section {
+        width: 85%;
+		display: flex; /* Enables Flexbox */
+		justify-content: center; /* Centers children (images) horizontally */
+		align-items: center; /* Centers children (images) vertically */
+		flex-wrap: wrap; /* Allows items to wrap as needed */
+		/* Add some height to the section if you want to see the vertical centering effect */
+		min-height: 500px; /* Adjust based on your needs */
+		background-image: url('photo/bg1.jpg');
+		background-size: cover; /* Cover the entire container */
+		background-position: center; /* Center the background image */
+	
+    }
+	
+	
+	
+    nav {
+        width: 15%;             
+        
+		background-image: url('photo/bg2.webp');
+    }    
+    nav ul {
+        list-style: none; 
+        line-height: 24px;
+        padding: 80px; 
+    }
+    nav ul li a {
+        color: #333;
+    }
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    footer {
+        background: #acb3b9;            
+        text-align: center;
+        
+    }
+	#imageSection {
+		min-width: 650px; /* Set maximum width */
+		min-height: 150px; /* Set maximum height */
+		width: auto; /* Allow image width to adjust according to max-width */
+		height: auto; /* Allow image height to adjust according to max-height */
+		object-fit: cover; /* Ensures images maintain aspect ratio while filling the element's box */
+		margin: 10px; /* Adds some space around images; adjust as needed */
+		display: flex; /* Enables Flexbox */
+		flex-wrap: wrap; /* Allows items to wrap */
+		justify-content: center; /* Centers items horizontally */
+		align-items: center; /* Centers items vertically */
+		
+		
+	}
+	.carousel-item video {
+		width: 712px;
+		height: 400px;
+	}
+	
+	/* Hide the video section by default */
+	#videoSection {
+		display: none;
+	}
+	header h1 {
+		font-size: 50px; /* Set the font size */
+		color: teal; /* Set the text color */
+		font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Specify a custom font */
+		text-align: center; /* Center-align the text */
+		margin-top: 0px; /* Add top margin */
+		margin-left:100px;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow */
+	}
+</style>
+</head>
+<body>
+	
+    <div class="container">
+        <header>
+            <h1>Pupu weds Pukka</h1>
+        </header>
+        <div class="wrapper clearfix">
+            <nav>
+                <ul>					
+                    <li><a href="#" id="home">Home</a></li>
+					<li><a href="#" id="image">Photo</a></li>
+					<li><a href="#" id="video">Video</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+            </nav>
+			<section>
+                <div id="imageSection"></div> <!-- Container for images -->
+            </section>
+        </div>
+        <footer>
+            <p>copyright &copy; softnook</p>
+        </footer>
+    </div>
+	
+	<!-- Audio Player for Background Music -->
+	<audio id="audioPlayer" controls loop style="display:none;">
+		<source src="audio/piano.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$('#image').click(function(e){
+			e.preventDefault(); // Prevent default anchor behavior
+			$('#imageSection').show();
+			$('#videoSection').hide(); // Hide the video section
+			$('#myCarousel').carousel(0); // Show the first slide of the image carousel
+
+			// Clear existing images
+			$('#imageSection').empty();
+
+			// Array of image filenames (assuming they exist in 'photo' folder)
+			var imageFiles = ['ph6.jpg', 'ph2.jpg', 'ph3.jpg', 'ph4.jpg', 'ph5.jpg','ph1.jpg'];
+
+			// Loop through imageFiles and append img elements to imageSection
+			imageFiles.forEach(function(filename) {
+				var img = $('<img>').attr('src', 'photo/' + filename).addClass('section-img');
+				$('#imageSection').append(img);
+
+				// Add error handling to log any image loading errors
+				img.on('error', function() {
+					console.log('Error loading image: ' + filename);
+				});
+			});
+		});
+
+		$('#video').click(function(e){
+			e.preventDefault(); // Prevent default anchor behavior
+			$('#imageSection').hide();
+			$('#videoSection').show(); // Show the video section
+			$('#videoCarousel').carousel(0); // Show the first slide of the video carousel
+		});
+	});
+	</script>
+
+</body>
+</html>
