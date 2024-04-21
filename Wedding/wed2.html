@@ -13,19 +13,32 @@
 		font-family: 'Open Sans', sans-serif;
     }
     header {
-        font-size:50px;
-		padding-top:1px;
-		width: 100%;        
+        font-size: 40px;
+		color:green;
+        
+        text-align: center;
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 		background-image: url('photo/bg2.webp');
-	    height:65px;
-		color:teal;
-		text-align:center;
-		font-family:'Comic Sans MS', 'Comic Sans', cursive;		
     }
-    
-    .container {
+
+	
+	.top-bar {
+		height: 50px;
+		width: 100%;
+		background-color: #333;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		
+		background-image: url('photo/bg2.webp');
+		background-size: cover;
+	}
+	
+    .container {		
         width: 100%;
-        background: #f2f2f2;  
+        background: #f2f2f2;
+		margin:0 px;	
     }
     nav, section {
         float: left; 
@@ -36,6 +49,7 @@
     }
     section {
         width: 85%;
+		
 		display: flex; /* Enables Flexbox */
 		justify-content: center; /* Centers children (images) horizontally */
 		align-items: center; /* Centers children (images) vertically */
@@ -48,20 +62,24 @@
 	
     }
 	
-	
-	
-    nav {
-        width: 15%;             
-        
-		background-image: url('photo/bg2.webp');
-    }    
+	nav {
+        width: 15%;
+		
+    }
     nav ul {
-        list-style: none; 
-        line-height: 24px;
-        padding: 80px; 
+        list-style: none;
+        padding: 0;
+		margin-top:10px;
     }
     nav ul li a {
-        color: #333;
+        display: block;
+        padding: 10px;
+		margin-left:40px;		
+        text-decoration: none;
+        color: teal;
+		font-size:20px;
+        font-weight: bold;
+		
     }
     .clearfix:after {
         content: ".";
@@ -76,17 +94,18 @@
         
     }
 	#imageSection {
-		min-width: 650px; /* Set maximum width */
+		min-width: 700px; /* Set maximum width */
 		min-height: 150px; /* Set maximum height */
 		width: auto; /* Allow image width to adjust according to max-width */
 		height: auto; /* Allow image height to adjust according to max-height */
 		object-fit: cover; /* Ensures images maintain aspect ratio while filling the element's box */
-		margin: 10px; /* Adds some space around images; adjust as needed */
+		
 		display: flex; /* Enables Flexbox */
 		flex-wrap: wrap; /* Allows items to wrap */
 		justify-content: center; /* Centers items horizontally */
-		align-items: center; /* Centers items vertically */
-		
+		align-items: center; /* Centers items vertically */		
+        border-radius: 5px;
+       
 		
 	}
 	.carousel-item video {
@@ -98,25 +117,42 @@
 	#videoSection {
 		display: none;
 	}
-	header h1 {
-		font-size: 50px; /* Set the font size */
-		color: teal; /* Set the text color */
-		font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Specify a custom font */
-		text-align: center; /* Center-align the text */
-		margin-top: 0px; /* Add top margin */
-		margin-left:100px;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow */
+	
+	
+	#imageSection img {
+		width: auto;
+		height: auto;
+		object-fit: cover;
+		margin: 10px; /* Add margin between images */
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.title{
+		text-align:center;
+		width:95%;
+		margin-left:20px;
+		font-size:20px;
+		font-weight:bold;
+		color:#832B00;
+		background-color:#F7E5DA;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.wrapper{
+		background-image: url('photo/bg2.webp');
 	}
 </style>
 </head>
 <body>
 	
     <div class="container">
-        <header>
-            <h1>Pupu weds Pukka</h1>
-        </header>
-        <div class="wrapper clearfix">
+        <p class="top-bar";></p>
+        <div class="wrapper clearfix" >
+		
             <nav>
+			<header>
+				<h1>Pupu weds Pukka</h1>
+			</header>
                 <ul>					
                     <li><a href="#" id="home">Home</a></li>
 					<li><a href="#" id="image">Photo</a></li>
@@ -158,17 +194,39 @@
 
 			// Array of image filenames (assuming they exist in 'photo' folder)
 			var imageFiles = ['ph6.jpg', 'ph2.jpg', 'ph3.jpg', 'ph4.jpg', 'ph5.jpg','ph1.jpg'];
+			
+			// Titles corresponding to image filenames
+            var imageTitles = {
+                'ph1.jpg': 'Dashboard',
+                'ph2.jpg': 'Image 2',
+                'ph3.jpg': 'Image 3',
+                'ph4.jpg': 'Image 4',
+                'ph5.jpg': 'Image 5',
+                'ph6.jpg': 'Image 6'
+            };
 
 			// Loop through imageFiles and append img elements to imageSection
-			imageFiles.forEach(function(filename) {
-				var img = $('<img>').attr('src', 'photo/' + filename).addClass('section-img');
-				$('#imageSection').append(img);
+            imageFiles.forEach(function(filename) {
+                // Create a container div for each image and title
+                var imageContainer = $('<div>').addClass('image-container');
 
-				// Add error handling to log any image loading errors
-				img.on('error', function() {
-					console.log('Error loading image: ' + filename);
-				});
-			});
+                // Create an img tag for the image
+                var img = $('<img>').attr({
+                    'src': 'photo/' + filename,
+                    'title': imageTitles[filename] // Set the title attribute
+                }).addClass('section-img');
+
+                // Create a paragraph for the image title
+                var title = $('<p class="title">').text(imageTitles[filename]);
+
+                // Append img and title to the imageContainer
+                imageContainer.append(img);
+                imageContainer.append(title);
+
+                // Append imageContainer to the imageSection
+                $('#imageSection').append(imageContainer);
+            });
+			
 		});
 
 		$('#video').click(function(e){
