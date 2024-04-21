@@ -11,7 +11,7 @@
         margin: 0px;
 		background-color: #100e17;
 		font-family: 'Open Sans', sans-serif;
-    } 
+    }
     header {
         font-size: 40px;
 		color:green;
@@ -141,6 +141,21 @@
 	.wrapper{
 		background-image: url('photo/bg2.webp');
 	}
+	
+	/* Hide default video controls */
+	video::-webkit-media-controls {
+		display: none !important;
+	}
+
+	video::-webkit-media-controls-panel {
+		display: none !important;
+	}
+
+	video::-webkit-media-controls-current-time-display,
+	video::-webkit-media-controls-time-remaining-display {
+		display: none !important;
+	}
+
 </style>
 </head>
 <body>
@@ -161,8 +176,14 @@
 				</ul>
             </nav>
 			<section>
-                <div id="imageSection"></div> <!-- Container for images -->
-            </section>
+				<div id="imageSection"></div> <!-- Container for images -->
+				<div id="videoSection">
+					<video id="videoPlayer" controls autoplay muted>
+						<source src="photo/Cloud_preview.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</section>
         </div>
         <footer>
             <p>copyright &copy; softnook</p>
@@ -182,60 +203,103 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<script>
-	$(document).ready(function(){
-		$('#image').click(function(e){
-			e.preventDefault(); // Prevent default anchor behavior
-			$('#imageSection').show();
-			$('#videoSection').hide(); // Hide the video section
-			$('#myCarousel').carousel(0); // Show the first slide of the image carousel
+		$(document).ready(function(){
+			$('#home').click(function(e) {
+				e.preventDefault(); // Prevent default anchor behavior
+				$('#videoSection').show();
+				$('#imageSection').hide(); // Hide image section initially
 
-			// Clear existing images
-			$('#imageSection').empty();
+				var video = document.getElementById('videoPlayer');
 
-			// Array of image filenames (assuming they exist in 'photo' folder)
-			var imageFiles = ['ph6.jpg', 'ph2.jpg', 'ph3.jpg', 'ph4.jpg', 'ph5.jpg','ph1.jpg'];
+				// Ensure the video is muted for autoplay
+				video.muted = true;
+
+				// Play the video immediately on click (may require direct user interaction)
+				video.play();
+				// Loop the video playback
+				video.addEventListener('ended', function() {
+					video.currentTime = 0; // Reset video to start
+					video.play(); // Play video again
+				});
+				// Function to pause the video when the page is unloaded
+				window.addEventListener('beforeunload', function() {
+					video.pause();
+				});
+			});
 			
-			// Titles corresponding to image filenames
-            var imageTitles = {
-                'ph1.jpg': 'Dashboard',
-                'ph2.jpg': 'Image 2',
-                'ph3.jpg': 'Image 3',
-                'ph4.jpg': 'Image 4',
-                'ph5.jpg': 'Image 5',
-                'ph6.jpg': 'Image 6'
-            };
+			$('#image').click(function(e){
+				e.preventDefault(); // Prevent default anchor behavior
+				$('#imageSection').show();
+				$('#videoSection').hide(); // Hide the video section
+				$('#myCarousel').carousel(0); // Show the first slide of the image carousel
 
-			// Loop through imageFiles and append img elements to imageSection
-            imageFiles.forEach(function(filename) {
-                // Create a container div for each image and title
-                var imageContainer = $('<div>').addClass('image-container');
+				// Clear existing images
+				$('#imageSection').empty();
 
-                // Create an img tag for the image
-                var img = $('<img>').attr({
-                    'src': 'photo/' + filename,
-                    'title': imageTitles[filename] // Set the title attribute
-                }).addClass('section-img');
+				// Array of image filenames (assuming they exist in 'photo' folder)
+				var imageFiles = ['ph6.jpg', 'ph2.jpg', 'ph3.jpg', 'ph4.jpg', 'ph5.jpg','ph1.jpg'];
+				
+				// Titles corresponding to image filenames
+				var imageTitles = {
+					'ph1.jpg': 'Dashboard',
+					'ph2.jpg': 'Image 2',
+					'ph3.jpg': 'Image 3',
+					'ph4.jpg': 'Image 4',
+					'ph5.jpg': 'Image 5',
+					'ph6.jpg': 'Image 6'
+				};
 
-                // Create a paragraph for the image title
-                var title = $('<p class="title">').text(imageTitles[filename]);
+				// Loop through imageFiles and append img elements to imageSection
+				imageFiles.forEach(function(filename) {
+					// Create a container div for each image and title
+					var imageContainer = $('<div>').addClass('image-container');
 
-                // Append img and title to the imageContainer
-                imageContainer.append(img);
-                imageContainer.append(title);
+					// Create an img tag for the image
+					var img = $('<img>').attr({
+						'src': 'photo/' + filename,
+						'title': imageTitles[filename] // Set the title attribute
+					}).addClass('section-img');
 
-                // Append imageContainer to the imageSection
-                $('#imageSection').append(imageContainer);
-            });
+					// Create a paragraph for the image title
+					var title = $('<p class="title">').text(imageTitles[filename]);
+
+					// Append img and title to the imageContainer
+					imageContainer.append(img);
+					imageContainer.append(title);
+
+					// Append imageContainer to the imageSection
+					$('#imageSection').append(imageContainer);
+				});
+				
+			});
+
+			// Show default video when page loads
+			$('#videoSection').show();
+			var video = document.getElementById('videoPlayer');
 			
-		});
+			// Ensure the video is muted for autoplay
+			video.muted = true;
 
-		$('#video').click(function(e){
-			e.preventDefault(); // Prevent default anchor behavior
-			$('#imageSection').hide();
-			$('#videoSection').show(); // Show the video section
-			$('#videoCarousel').carousel(0); // Show the first slide of the video carousel
+			// Play the video immediately on page load
+			video.play();
+			// Loop the video playback
+			video.addEventListener('ended', function() {
+				video.currentTime = 0; // Reset video to start
+				video.play(); // Play video again
+			});
+			// Function to pause the video when the page is unloaded
+			window.addEventListener('beforeunload', function() {
+				video.pause();
+			});
+
+		
+			$('#imageSection').hide(); // Hide image section initially
+		
+		
+		
+		
+		
 		});
-	});
 	</script>
 
 </body>
