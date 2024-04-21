@@ -2,14 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black; 
+    color: black;
 }
-/* Define custom properties for hand lengths */
-:root {
-    --hour-length: 45px; /* Updated hour hand length */
-    --minute-length: 63px; /* Updated minute hand length */
-    --second-length: 72px; /* Updated second hand length */
-}
+
 
 .wrapper {
     display: flex;
