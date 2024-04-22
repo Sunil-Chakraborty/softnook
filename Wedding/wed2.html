@@ -28,11 +28,11 @@
 		width: 100%;
 		background-color: #333;
 		color: #fff;
-		display: flex;
-		align-items: center;
-		
+		display: flex;		
 		background-image: url('photo/bg2.webp');
 		background-size: cover;
+		
+        
 	}
 	
     .container {		
@@ -116,6 +116,8 @@
 	/* Hide the video section by default */
 	#videoSection {
 		display: none;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	}
 	
 	
@@ -155,13 +157,25 @@
 	video::-webkit-media-controls-time-remaining-display {
 		display: none !important;
 	}
+	#videoSection {
+		width: 100%; /* Set the width to 100% of its container (adjust as needed) */
+		height: auto; /* Maintain aspect ratio by setting height to auto */
+		text-align: center; /* Center-align the video horizontally */
+	}
 
+	#videoPlayer {
+		width: 80%; /* Set the width of the video player (adjust as needed) */
+		max-width: 800px; /* Set a maximum width to prevent excessive scaling */
+		height: auto; /* Maintain aspect ratio based on width */
+		display: block; /* Ensure the video player is displayed as a block element */
+		margin: 0 auto; /* Center-align the video player within its container */
+	}
 </style>
 </head>
 <body>
 	
     <div class="container">
-        <p class="top-bar";></p>
+        <p class="top-bar";style="float:right;color:black;">Menu</p>
         <div class="wrapper clearfix" >
 		
             <nav>
@@ -248,7 +262,21 @@
 					'ph5.jpg': 'Image 5',
 					'ph6.jpg': 'Image 6'
 				};
+				// Function to display image based on title click
+				$('.title').click(function() {
+					var titleText = $(this).text();
 
+					// Find the corresponding image filename based on the clicked title
+					var filename = Object.keys(imageFiles).find(function(key) {
+						return imageFiles[key] === titleText;
+					});
+
+					if (filename) {
+						// Create and display the image
+						var img = $('<img>').attr('src', 'photo/' + filename);
+						imageSection.empty().append(img);
+					}
+				});
 				// Loop through imageFiles and append img elements to imageSection
 				imageFiles.forEach(function(filename) {
 					// Create a container div for each image and title
