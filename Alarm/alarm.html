@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication Alarm</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome (for icons) - optional, if you prefer Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <!-- Font Awesome -->
+
+
+
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: 20px;
+      padding: 10px;
+      background-color: powderblue;
+    }
+
+    /* Custom styling for form elements */
+    input[type="date"],
+    input[type="text"],
+    textarea {
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    /* Styling for modal */
+    #alarmNotificationModal {
+      display: none; /* Initially hide the modal */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="input-container">
+      <h2>Medication Alarm</h2>
+      <form id="alarm-form">
+        <input type="date" id="alarm-date" placeholder="Start Date" class="form-control" required>
+        <input type="text" id="alarm-catg" class="form-control" placeholder="Medicine" required>
+        <textarea id="alarm-comment" class="form-control" placeholder="Narration" rows="3"></textarea>
+        <div>
+          <label for="set-time1">Select Timing:</label>
+          <input type="time" id="set-time1" class="weekday-time">
+          <input type="time" id="set-time2" class="weekday-time">
+          <input type="time" id="set-time3" class="weekday-time">
+        
+          <label for="alarm-days">Duration:</label>
+          <input type="number" id="alarm-days" name="days" min="0" max="99" step="1">
+          <span>Days</span>
+        </div>
+        <div>
+          <label>Select Weekdays:</label><br>         
+          <input type="checkbox" id="sunday" name="weekday" value="Sun">
+          <label for="sunday">Sun</label>
+          <input type="checkbox" id="monday" name="weekday" value="Mon">
+          <label for="monday">Mon</label>
+          <input type="checkbox" id="tuesday" name="weekday" value="Tue">
+          <label for="tuesday">Tue</label>
+          <input type="checkbox" id="wednesday" name="weekday" value="Wed">
+          <label for="wednesday">Wed</label>
+          <input type="checkbox" id="thursday" name="weekday" value="Thu">
+          <label for="thursday">Thu</label>
+          <input type="checkbox" id="friday" name="weekday" value="Fri">
+          <label for="friday">Fri</label>
+          <input type="checkbox" id="saturday" name="weekday" value="Sat">
+          <label for="saturday">Sat</label>
+        </div>
+        <button type="submit">Add Alarm</button>
+      </form>
+      <hr>
+    </div>
+    <div id="table-container">
+      <h2>Medication Listing</h2>
+      <table id="alarm-table" class="display">
+        <thead>
+          <tr>
+            <th>Start Date</th>
+            <th>Medicine</th>
+            <th>Narration</th>
+            <th>Timing</th>
+            <th>Weekdays</th>
+            <th>Duration</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal for Alarm Notification -->
+	<div class="modal fade" id="alarmNotificationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Medication Alarm</h5>
+			<!-- Close button with appropriate classes -->
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span> <!-- "x" symbol -->
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<p>Time to take <span id="medicineName"></span>.</p>
+			<p id="narrationText"></p>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
