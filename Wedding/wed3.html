@@ -378,7 +378,7 @@
 
 					if (filename) {
 						// Create and display the image
-						var img = $('<img>').attr('src', 'photo/Rimi/iburo/' + filename);
+						var img = $('<img>').attr('src', 'photo/' + filename);
 						$('#imageSection').empty().append(img);
 					}
 				});
@@ -390,7 +390,7 @@
 
 					// Create an img tag for the image
 					var img = $('<img>').attr({
-						'src': 'photo/Rimi/iburo/' + filename,
+						'src': 'photo/' + filename,
 						'title': imageTitles[filename] // Set the title attribute
 					}).addClass('section-img');
 
