@@ -361,9 +361,9 @@
 
 				// Titles corresponding to image filenames
 				var imageTitles = {
-					'ph1.jpg': 'বাবা ও মেয়ে',
-					'ph2.jpg': 'মা ও মেয়ে',
-					'ph3.jpg': 'দিদি ও বোন',
+					'rh1.jpg': 'বাবা ও মেয়ে',
+					'rh2.jpg': 'মা ও মেয়ে',
+					'rh3.jpg': 'দিদি ও বোন',
 					// Add more titles as needed...
 				};
 
@@ -378,7 +378,7 @@
 
 					if (filename) {
 						// Create and display the image
-						var img = $('<img>').attr('src', 'photo/rimi/iburo/' + filename);
+						var img = $('<img>').attr('src', 'photo/' + filename);
 						$('#imageSection').empty().append(img);
 					}
 				});
@@ -390,7 +390,7 @@
 
 					// Create an img tag for the image
 					var img = $('<img>').attr({
-						'src': 'photo/rimi/iburo/' + filename,
+						'src': 'photo/' + filename,
 						'title': imageTitles[filename] // Set the title attribute
 					}).addClass('section-img');
 
