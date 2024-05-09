@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Images</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><style>
+    body {
+        font: 14px Arial,sans-serif; 
+        margin: 0px;
+		background-color: #100e17;
+		font-family: 'Open Sans', sans-serif;
+    }
+    header {
+        font-size: 40px;
+		color:green;
+        
+        text-align: center;
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		background-image: url('photo/rimi.avif');
+    }
+
+	
+	.top-bar1 {
+		height: 50px;
+		width: 100%;
+		background-color: #333;
+		color: #fff;
+		display: flex;		
+		background-image: url('photo/rimi.avif');
+		text-align : Center;
+	}
+	.top-bar{
+	   padding-left:550px;
+	   font-family: 'Times New Roman',serif;
+	   letter-spacing: 5px;
+	   font-size: 50px;
+	   font-weight: bold;
+	   background-image: linear-gradient(
+		to right,
+		#462523 0,
+			#cb9b51 22%, 
+		#f6e27a 45%,
+		#f6f2c0 50%,
+		#f6e27a 55%,
+		#cb9b51 78%,
+		#462523 100%
+		);
+	   
+	}
+	.top-bar2{
+	   text-align:Center;
+	   height:500px;	   
+	   font-family: 'Times New Roman',serif;
+	   letter-spacing: 1px;
+	   font-size: 50px;
+	   font-weight: bold;
+	   background-image: linear-gradient(
+		to right,
+		#462523 0,
+			#cb9b51 22%, 
+		#f6e27a 45%,
+		#f6f2c0 50%,
+		#f6e27a 55%,
+		#cb9b51 78%,
+		#462523 100%
+		);
+	   
+	}
+	
+	.top-bar3{	  
+	   height:95px;
+	   
+	   letter-spacing: 5px;	   
+	   background-image: linear-gradient(
+		to right,
+		#462523 0,
+			#cb9b51 22%, 
+		#f6e27a 45%,
+		#f6f2c0 50%,
+		#f6e27a 55%,
+		#cb9b51 78%,
+		#462523 100%
+		);
+	   
+	}
+    .container {		
+        width: 100%;
+        background: #f2f2f2;
+		margin:0 px;	
+    }
+    nav, section {
+        float: left; 
+        padding: 20px;
+        min-height: 530px;
+        box-sizing: border-box;
+		background-image: url('photo/rimi.avif');
+    }
+    section {
+        width: 85%;
+		
+		display: flex; /* Enables Flexbox */
+		justify-content: center; /* Centers children (images) horizontally */
+		align-items: center; /* Centers children (images) vertically */
+		flex-wrap: wrap; /* Allows items to wrap as needed */
+		/* Add some height to the section if you want to see the vertical centering effect */
+		min-height: 500px; /* Adjust based on your needs */
+		background-image: url('photo/rimi.avif');
+		background-size: cover; /* Cover the entire container */
+		background-position: center; /* Center the background image */
+	
+    }
+	
+	nav {
+        width: 15%;
+		
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+		margin-top:1px;
+    }
+    nav ul li a {
+        display: block;
+        padding: 12px;
+		margin-left:8px;		
+        text-decoration: none;
+        color: black;
+		font-size:20px;
+        font-weight: bold;
+		
+    }
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    footer {
+        background: #acb3b9;            
+        text-align: center;
+        
+    }
+	#imageSection {
+		min-width: 700px; /* Set maximum width */
+		min-height: 150px; /* Set maximum height */
+		width: auto; /* Allow image width to adjust according to max-width */
+		height: auto; /* Allow image height to adjust according to max-height */
+		object-fit: cover; /* Ensures images maintain aspect ratio while filling the element's box */
+		
+		display: flex; /* Enables Flexbox */
+		flex-wrap: wrap; /* Allows items to wrap */
+		justify-content: center; /* Centers items horizontally */
+		align-items: center; /* Centers items vertically */		
+        border-radius: 5px;
+       
+		
+	}
+	.carousel-item video {
+		width: 712px;
+		height: 400px;
+	}
+	
+	/* Hide the video section by default */
+	#videoSection {
+		display: none;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	
+	#imageSection img {
+		width: auto;
+		height: auto;
+		object-fit: cover;
+		margin: 10px; /* Add margin between images */
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.title{
+		text-align:center;
+		width:95%;
+		margin-left:20px;
+		font-size:20px;
+		font-weight:bold;
+		color:#832B00;
+		background-color:#F7E5DA;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.wrapper{
+		background-image: url('photo/rimi.avif');
+	}
+	
+	/* Hide default video controls */
+	video::-webkit-media-controls {
+		display: none !important;
+	}
+
+	video::-webkit-media-controls-panel {
+		display: none !important;
+	}
+
+	video::-webkit-media-controls-current-time-display,
+	video::-webkit-media-controls-time-remaining-display {
+		display: none !important;
+	}
+	#videoSection {
+		width: 100%; /* Set the width to 100% of its container (adjust as needed) */
+		height: auto; /* Maintain aspect ratio by setting height to auto */
+		text-align: center; /* Center-align the video horizontally */
+	}
+
+	#videoPlayer {
+		width: auto; /* Set the width of the video player (adjust as needed) */
+		max-width: 900px; /* Set a maximum width to prevent excessive scaling */
+		height: auto; /* Maintain aspect ratio based on width */
+		display: block; /* Ensure the video player is displayed as a block element */
+		margin: 0 auto; /* Center-align the video player within its container */
+	}
+	
+	
+	
+	span{
+	   position: absolute;
+	   transform: translate(-50%,-50%);
+	   top: 50%;
+	   left: 50%;
+	   font-family: 'Times New Roman',serif;
+	   letter-spacing: 5px;
+	   font-size: 50px;
+	   font-weight: bold;
+	   background-image: linear-gradient(
+		to right,
+		#462523 0,
+			#cb9b51 22%, 
+		#f6e27a 45%,
+		#f6f2c0 50%,
+		#f6e27a 55%,
+		#cb9b51 78%,
+		#462523 100%
+		);
+	   color:transparent;
+	   -webkit-background-clip:text;
+
+	}
+	
+	.rounded-image {
+        border-radius: 25px; /* Adjust the value to control the roundness of the corners */
+        overflow: hidden; /* Clip the image to fit within the rounded corners */
+    }
+	
+	/* Style for image containers */
+    .image-container {
+        text-align: center; /* Center-align contents horizontally */
+        margin-bottom: 20px; /* Add spacing between image containers */
+    }
+
+    /* Style for images within containers */
+    .section-img {
+        max-width: 100%; /* Ensure images do not exceed container width */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Ensure images are displayed as blocks */
+        border-radius: 10px; /* Round the corners of images */
+        overflow: hidden; /* Clip image within rounded corners */
+    }
+
+    /* Style for image titles */
+    .title {
+        font-size: 14px; /* Set font size for titles */
+        margin-top: 10px; /* Add spacing above titles */
+    }
+</style>
+</head>
+<body>
+	
+    <div class="container ">
+        <p class="top-bar3 rounded-image" ><img class="rounded-image" src="photo/wed_cali.jpg" alt="wed caligraph image" width="240" height="90" style="margin-top:1px;border: 1px solid black;margin-left:600px;"></p>
+		
+        <div class="wrapper clearfix" >
+		
+            <nav>
+			
+                <ul class="top-bar2">					
+                    <li><a href="#" id="home">Home</a></li>
+					<li><a href="#" id="image">আইবুড়ো ভাত</a></li>
+					<li><a href="#" id="image1">গায়ে হলুদ</a></li>
+					<li><a href="#" id="image2">সাত পাকে বাঁধা</a></li>
+					<li><a href="#" id="image3">ঘরোয়া বৌভাত</a></li>
+					<li><a href="#" id="image4">বিবাহ সংবর্ধনা</a></li>
+					<li><a href="#" id="video">Video</a></li>
+					<li><a href="#" id="contact">Contact</a></li>
+				</ul>
+            </nav>
+			<section >
+				<div id="imageSection"></div> <!-- Container for images -->
+				<div id="videoSection">
+					<video id="videoPlayer" controls autoplay muted>
+						<source src="photo/wed_inv1.mp4" type="video/mp4">
+						
+					</video>
+				</div>
+			</section>
+        </div>
+        <footer>
+            <p style="margin-left:200px;font-size:15px;font-weight:bold;">copyright &copy; Sunil Chakraborty</p>
+        </footer>
+    </div>
+	
+	<!-- Audio Player for Background Music -->
+	<audio id="audioPlayer" controls loop style="display:none;">
+		<source src="audio/piano.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#home').click(function(e) {
+				e.preventDefault(); // Prevent default anchor behavior
+				$('#videoSection').show();
+				$('#imageSection').hide(); // Hide image section initially
+
+				var video = document.getElementById('videoPlayer');
+
+				// Ensure the video is muted for autoplay
+				video.muted = true;
+
+				// Play the video immediately on click (may require direct user interaction)
+				video.play();
+				// Loop the video playback
+				video.addEventListener('ended', function() {
+					video.currentTime = 0; // Reset video to start
+					video.play(); // Play video again
+				});
+				// Function to pause the video when the page is unloaded
+				window.addEventListener('beforeunload', function() {
+					video.pause();
+				});
+			});
+			
+			$('#image').click(function(e) {
+				e.preventDefault(); // Prevent default anchor behavior
+				$('#imageSection').show();
+				$('#videoSection').hide(); // Hide the video section
+				$('#myCarousel').carousel(0); // Show the first slide of the image carousel
+
+				// Clear existing images
+				$('#imageSection').empty();
+
+				// Array of image filenames (assuming they exist in 'photo' folder)
+				var imageFiles = ['ph1.jpg', 'ph2.jpg', 'ph3.jpg'];
+
+				// Titles corresponding to image filenames
+				var imageTitles = {
+					'ph1.jpg': 'বাবা ও মেয়ে',
+					'ph2.jpg': 'মা ও মেয়ে',
+					'ph3.jpg': 'দিদি ও বোন',
+					// Add more titles as needed...
+				};
+
+				// Function to display image based on title click
+				$('.title').click(function() {
+					var titleText = $(this).text();
+
+					// Find the corresponding image filename based on the clicked title
+					var filename = Object.keys(imageTitles).find(function(key) {
+						return imageTitles[key] === titleText;
+					});
+
+					if (filename) {
+						// Create and display the image
+						var img = $('<img>').attr('src', 'photo/Rimi/iburo/' + filename);
+						$('#imageSection').empty().append(img);
+					}
+				});
+
+				// Loop through imageFiles and append img elements to imageSection
+				imageFiles.forEach(function(filename) {
+					// Create a container div for each image and title
+					var imageContainer = $('<div>').addClass('image-container');
+
+					// Create an img tag for the image
+					var img = $('<img>').attr({
+						'src': 'photo/Rimi/iburo/' + filename,
+						'title': imageTitles[filename] // Set the title attribute
+					}).addClass('section-img');
+
+					// Create a paragraph for the image title
+					var title = $('<p class="title">').text(imageTitles[filename]);
+
+					// Append img and title to the imageContainer
+					imageContainer.append(img);
+					imageContainer.append(title);
+
+					// Append imageContainer to the imageSection
+					$('#imageSection').append(imageContainer);
+				});
+			});
+
+			// Show default video when page loads
+			$('#videoSection').show();
+			var video = document.getElementById('videoPlayer');
+			
+			// Ensure the video is muted for autoplay
+			video.muted = true;
+
+			// Play the video immediately on page load
+			video.play();
+			// Loop the video playback
+			video.addEventListener('ended', function() {
+				video.currentTime = 0; // Reset video to start
+				video.play(); // Play video again
+			});
+			// Function to pause the video when the page is unloaded
+			window.addEventListener('beforeunload', function() {
+				video.pause();
+			});
+
+		
+			$('#imageSection').hide(); // Hide image section initially
+		
+		
+		
+		
+		
+		});
+	</script>
+
+</body>
+</html>
