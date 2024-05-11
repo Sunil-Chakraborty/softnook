@@ -164,12 +164,6 @@
 		height: 400px;
 	}
 	
-	/* Hide the video section by default */
-	#videoSection {
-		display: none;
-		border-radius: 10px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	}
 	
 	
 	#imageSection img {
@@ -276,7 +270,7 @@
 <body>
 	
     <div class="container ">
-        <p class="top-bar3 rounded-image" ><img class="rounded-image" src="photo/wed_cali.jpg" alt="wed caligraph image" width="240" height="90" style="margin-top:1px;border: 1px solid black;margin-left:550px;"></p>
+        <p class="top-bar3 rounded-image" ><img class="rounded-image" src="photo/wed_cali.jpg" alt="wed caligraph image" width="240" height="90" style="margin-top:1px;border: 1px solid black;margin-left:600px;"></p>
 		
         <div class="wrapper clearfix" >
 		
@@ -296,11 +290,7 @@
 			<section >
 				<div id="imageSection"></div> <!-- Container for images -->
 				<div id="videoSection">
-					
-					<video width="80%"  controls autoplay muted>
-						<source src="photo/wed_inv1.mp4"  type="video/mp4">
-						
-					</video>
+					<img  src="photo/rimi/wed_card.png" alt="wed_card"  width="550" height="500">	
 				</div>
 			</section>
         </div>
@@ -324,9 +314,7 @@
 	<script>
 		$(document).ready(function(){
 		    var video = document.getElementById('videoSection');
-			if (video) {
-				video.muted = true;				
-			} 
+			
 			$('#imageSection').hide();
 			$('#videoSection').show();
 			
@@ -486,15 +474,19 @@
 
 				// Array of image filenames (assuming they exist in 'photo' folder)
 				//var imageFiles = ['rh9.jpg', 'rh10.jpg', 'rh11.jpg','rh12.jpg','rh13.jpg','rh14.jpg'];
-				var imageFiles = ['rh13.jpg', 'rh14.jpg', 'rh9.jpg','rh10.jpg','rh11.jpg','rh12.jpg'];
+				var imageFiles = ['rh13.jpg', 'rh14.jpg', 'rh9.jpg','rh10.jpg','rh11.jpg','rh12.jpg','rh15.jpg','rh17.jpg','rh16.jpg'];
 				// Titles corresponding to image filenames0
 				var imageTitles = {
-					'rh9.jpg': 'কনের মুখ পান পাতা দিয়ে ঢাকা ',
+					'rh9.jpg': 'কনের মুখ পান পাতা দিয়ে ঢাকা',
 					'rh10.jpg': 'বিস্ময়ে তাই জাগে',
-					'rh11.jpg': 'বরের সাথে ছোট-বড়',
+					'rh11.jpg': 'xxxx',
 					'rh12.jpg': 'xxxx',
 					'rh13.jpg': 'বর এলো গাড়িতে',
-					'rh14.jpg': 'xxxx',					
+					'rh14.jpg': 'বরের সহযাত্রী নিত-বর',
+					'rh15.jpg': 'সিন্দুর দান',	
+				    'rh16.jpg': 'xxxx',	
+					'rh17.jpg': 'xxxx',
+										
 					// Add more titles as needed...
 				};
 
@@ -536,29 +528,7 @@
 					$('#imageSection').append(imageContainer);
 				});
 			});
-
-
-
-
-			// Show default video when page loads
-			$('#videoSection').show();
-			var video = document.getElementById('videoPlayer');
 			
-			// Ensure the video is muted for autoplay
-			video.muted = true;
-
-			// Play the video immediately on page load
-			video.play();
-			// Loop the video playback
-			video.addEventListener('ended', function() {
-				video.currentTime = 0; // Reset video to start
-				video.play(); // Play video again
-			});
-			// Function to pause the video when the page is unloaded
-			window.addEventListener('beforeunload', function() {
-				video.pause();
-			});
-
 		
 			$('#imageSection').hide(); // Hide image section initially
 		
